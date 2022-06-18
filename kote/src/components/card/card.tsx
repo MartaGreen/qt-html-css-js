@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { CardType } from "../../types/card.types";
+import React, { useState } from "react";
+import { CardPreviewType, CardType } from "../../types/card.types";
 
 import CardFooter from "../cardFooter/cardFooter";
 import CardPreview from "../cardPreview/cardPreview";
@@ -8,9 +8,15 @@ function Card({ data }: { data: CardType }) {
   const [isDisabled, setIsDisabled] = useState(data.isDisabled || false);
   const [isSelected, setIsSelected] = useState(data.isSelected || false);
 
+  const previewData: CardPreviewType = {
+    ...data,
+    isSelected: isSelected,
+    isDisabled: isDisabled,
+  };
+
   return (
     <div>
-      <CardPreview />
+      <CardPreview data={previewData} changeSelection={setIsSelected} />
       <CardFooter
         isDisabled={isDisabled}
         isSelected={isSelected}
