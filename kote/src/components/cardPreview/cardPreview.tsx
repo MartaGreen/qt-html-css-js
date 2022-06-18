@@ -1,4 +1,6 @@
 import React from "react";
+import styles from "./cardPreview.style";
+
 import { WEIGHT_PER_SERVING } from "../../constants/card.constants";
 import { CardPreviewType } from "../../types/card.types";
 
@@ -9,7 +11,7 @@ function CardPreview({
   data: CardPreviewType;
   changeSelection: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  console.log(data);
+  const classes = styles();
 
   const getLastDigit = (num: number) => {
     return Number(num.toString().slice(-1));

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./cardFooter.style";
 
 function CardFooter({
   isDisabled,
@@ -11,6 +12,8 @@ function CardFooter({
   selectedMsg: string;
   taste: string;
 }) {
+  const classes = styles();
+
   const msg: JSX.Element = (isDisabled && (
     <div>Печалька, {taste} закончился</div>
   )) ||
