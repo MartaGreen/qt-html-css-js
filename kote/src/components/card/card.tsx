@@ -1,18 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { CardType } from "../../types/card.types";
 
 import CardFooter from "../cardFooter/cardFooter";
 import CardPreview from "../cardPreview/cardPreview";
 
 function Card({ data }: { data: CardType }) {
-  useEffect(() => {
-    console.log(data);
-  }, []);
+  const [isDisabled, setIsDisabled] = useState(data.isDisabled || false);
+  const [isSelected, setIsSelected] = useState(data.isSelected || false);
 
   return (
     <div>
       <CardPreview />
-      <CardFooter />
+      <CardFooter
+        isDisabled={isDisabled}
+        isSelected={isSelected}
+        selectedMsg={data.selectedMsg}
+        taste={data.taste}
+      />
     </div>
   );
 }
