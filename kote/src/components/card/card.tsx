@@ -18,7 +18,7 @@ function Card({ data }: { data: CardType }) {
   };
 
   return (
-    <div>
+    <div className={classes.card}>
       <CardPreview data={previewData} changeSelection={setIsSelected} />
       <CardFooter
         isDisabled={isDisabled}
