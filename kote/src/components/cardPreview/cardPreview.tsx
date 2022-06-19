@@ -64,7 +64,10 @@ function CardPreview({
       return mouseOfferStr(mouseAmount, "мыши");
   };
 
-  const totalWeight = (WEIGHT_PER_SERVING * data.servingsAmount) / 1000;
+  const totalWeight = ((WEIGHT_PER_SERVING * data.servingsAmount) / 1000)
+    .toString()
+    .split(".")
+    .join(",");
 
   return (
     <div className={classes.border}>
@@ -76,7 +79,10 @@ function CardPreview({
           {transfromServingsMsg(data.servingsAmount)}
           {mouseGift(data.servingsAmount)}
         </div>
-        <div>{totalWeight}</div>
+        <div className={classes.description__weight}>
+          <p style={{ fontSize: 42, lineHeight: "38px" }}>{totalWeight}</p>
+          <p style={{ fontSize: 20 }}>кг</p>
+        </div>
       </div>
     </div>
   );
