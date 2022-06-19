@@ -52,17 +52,19 @@ function CardPreview({
   const totalWeight = (WEIGHT_PER_SERVING * data.servingsAmount) / 1000;
 
   return (
-    <div className={classes.preview}>
-      <div className={classes.preview__description}>
-        <p>Сказочное заморское явство</p>
-        <h2>Нямушка</h2>
-        <h3>{data.taste}</h3>
-        <p>
-          {transfromServingsMsg(data.servingsAmount)} <br />
-          {mouseGift(data.servingsAmount)}
-        </p>
+    <div className={classes.border}>
+      <div className={classes.preview}>
+        <div className={classes.preview__description}>
+          <p>Сказочное заморское явство</p>
+          <h2>Нямушка</h2>
+          <h3>{data.taste}</h3>
+          <p>
+            {transfromServingsMsg(data.servingsAmount)} <br />
+            {mouseGift(data.servingsAmount)}
+          </p>
+        </div>
+        <div>{totalWeight}</div>
       </div>
-      <div>{totalWeight}</div>
     </div>
   );
 }
