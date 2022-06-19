@@ -18,25 +18,40 @@ function CardPreview({
   };
 
   const transfromServingsMsg = (amount: number) => {
+    const servingStr = (servingAmount: number, servingWord: string) => {
+      return (
+        <p
+          className={classes.description__offer}
+          style={{ letterSpacing: 0.4 }}
+        >
+          <b>{servingAmount}</b> {servingWord}
+        </p>
+      );
+    };
+
     if (
       (amount >= 11 && amount <= 19) ||
       getLastDigit(amount) === 0 ||
       (getLastDigit(amount) >= 5 && getLastDigit(amount) <= 9)
     ) {
-      return `${amount} порций`;
+      return servingStr(amount, "порций");
     }
     if (getLastDigit(amount) === 1) {
-      return `${amount} порция`;
+      return servingStr(amount, "порция");
     }
     if (getLastDigit(amount) >= 2 && getLastDigit(amount) <= 4) {
-      return `${amount} порции`;
+      return servingStr(amount, "порции");
     }
   };
 
   const mouseGift = (servingsAmount: number) => {
     const mouseAmount = Math.ceil(servingsAmount / 20);
-    const mouseOfferStr = (mouseAmount: number, mouseWord: string) =>
-      `${mouseAmount === 1 ? "" : mouseAmount} ${mouseWord} в подарок`;
+    const mouseOfferStr = (mouseAmount: number, mouseWord: string) => (
+      <p className={classes.description__offer} style={{ letterSpacing: 0.1 }}>
+        {" "}
+        <b>{mouseAmount === 1 ? "" : mouseAmount}</b> {mouseWord} в подарок{" "}
+      </p>
+    );
 
     if (getLastDigit(mouseAmount) === 1)
       return mouseOfferStr(mouseAmount, "мышь");
@@ -55,13 +70,11 @@ function CardPreview({
     <div className={classes.border}>
       <div className={classes.preview}>
         <div className={classes.preview__description}>
-          <p>Сказочное заморское явство</p>
-          <h2>Нямушка</h2>
-          <h3>{data.taste}</h3>
-          <p>
-            {transfromServingsMsg(data.servingsAmount)} <br />
-            {mouseGift(data.servingsAmount)}
-          </p>
+          <p className={classes.description__dish}>Сказочное заморское яство</p>
+          <h2 className={classes.description__title}>Нямушка</h2>
+          <h3 className={classes.description__taste}>{data.taste}</h3>
+          {transfromServingsMsg(data.servingsAmount)}
+          {mouseGift(data.servingsAmount)}
         </div>
         <div>{totalWeight}</div>
       </div>
