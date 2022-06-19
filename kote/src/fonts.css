@@ -2,3 +2,8 @@
   font-family: "Trebuchet MS";
   src: url("./assets/fonts/TrebuchetMS/trebuchetms.ttf");
 }
+
+@font-face {
+  font-family: "Exo 2";
+  src: url("./assets/fonts/Exo_2/static/Exo2-Thin.ttf");
+}
