@@ -33,6 +33,22 @@ function CardPreview({
     }
   };
 
+  const mouseGift = (servingsAmount: number) => {
+    const mouseAmount = Math.ceil(servingsAmount / 20);
+    const mouseOfferStr = (mouseAmount: number, mouseWord: string) =>
+      `${mouseAmount === 1 ? "" : mouseAmount} ${mouseWord} в подарок`;
+
+    if (getLastDigit(mouseAmount) === 1)
+      return mouseOfferStr(mouseAmount, "мышь");
+    if (
+      (getLastDigit(mouseAmount) >= 11 && getLastDigit(mouseAmount) <= 19) ||
+      (getLastDigit(mouseAmount) >= 5 && getLastDigit(mouseAmount) <= 9)
+    )
+      return mouseOfferStr(mouseAmount, "мышей");
+    if (getLastDigit(mouseAmount) >= 2 && getLastDigit(mouseAmount) <= 4)
+      return mouseOfferStr(mouseAmount, "мыши");
+  };
+
   const totalWeight = (WEIGHT_PER_SERVING * data.servingsAmount) / 1000;
 
   return (
@@ -41,7 +57,10 @@ function CardPreview({
         <p>Сказочное заморское явство</p>
         <h2>Нямушка</h2>
         <h3>{data.taste}</h3>
-        <p>{transfromServingsMsg(data.servingsAmount)}</p>
+        <p>
+          {transfromServingsMsg(data.servingsAmount)} <br />
+          {mouseGift(data.servingsAmount)}
+        </p>
       </div>
       <div>{totalWeight}</div>
     </div>
