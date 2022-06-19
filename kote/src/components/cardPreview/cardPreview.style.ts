@@ -10,6 +10,14 @@ const styles = createUseStyles({
     clipPath: "polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px)",
     borderRadius: 10,
     padding: 4,
+
+    "&:hover": {
+      cursor: "pointer",
+      background: "#2EA8E6",
+    },
+    "&:hover $description__weight": {
+      background: "#2EA8E6",
+    },
   },
 
   preview: {
@@ -80,6 +88,10 @@ const styles = createUseStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+  },
+
+  ".border:hover": {
+    background: "red",
   },
 });
 
