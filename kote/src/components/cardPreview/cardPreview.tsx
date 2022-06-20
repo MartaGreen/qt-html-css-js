@@ -99,7 +99,6 @@ function CardPreview({
       onClick={handleCardSelection}
       ref={previewContainer}
     >
-      {/* <div className={classes.disabledBlock}></div> */}
       <div className={classes.preview}>
         <div className={classes.preview__description}>
           <h2 className={classes.description__title}>Нямушка</h2>

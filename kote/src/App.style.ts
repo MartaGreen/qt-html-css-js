@@ -4,8 +4,10 @@ const styles = createUseStyles({
   wrapper: {
     minWidth: 320,
     maxWidth: 1200,
+    width: "100%",
 
     margin: "0 auto",
+    padding: "36px 0",
   },
 
   header: {
@@ -25,6 +27,8 @@ const styles = createUseStyles({
 
     justifyContent: "center",
     alignItems: "center",
+
+    padding: "0 10px",
   },
 });
 

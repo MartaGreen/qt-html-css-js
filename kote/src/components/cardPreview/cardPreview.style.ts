@@ -139,21 +139,6 @@ const styles = createUseStyles({
       opacity: "45%",
     },
   },
-
-  // disabledBlock: {
-  //   position: "absolute",
-  //   top: 0,
-  //   left: 0,
-
-  //   width: "100%",
-  //   height: "100%",
-
-  //   background: "#FFFFFF",
-  //   zIndex: -1,
-  //   opacity: "40%",
-  //   clipPath: "polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px)",
-  //   borderRadius: 10,
-  // },
 });
 
 export default styles;
