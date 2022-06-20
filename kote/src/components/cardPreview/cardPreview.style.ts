@@ -60,6 +60,8 @@ const styles = createUseStyles({
       letterSpacing: 0.1,
 
       marginBottom: 5,
+
+      color: "#666666",
     },
   },
 
