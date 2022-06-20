@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./cardPreview.style";
 
 import { WEIGHT_PER_SERVING } from "../../constants/card.constants";
@@ -78,8 +78,22 @@ function CardPreview({
     .split(".")
     .join(",");
 
+  const previewContainer = useRef(null);
+
+  const handleCardSelection = () => {
+    const divElement: HTMLDivElement | null = previewContainer.current;
+    if (!divElement) return;
+    (divElement as HTMLDivElement).classList.toggle(classes.selected);
+
+    changeSelection((selection) => !selection);
+  };
+
   return (
-    <div className={classes.border}>
+    <div
+      className={`${classes.border} ${data.isSelected && classes.selected}`}
+      onClick={handleCardSelection}
+      ref={previewContainer}
+    >
       <div className={classes.preview}>
         <div className={classes.preview__description}>
           <p className={classes.description__dish}>Сказочное заморское яство</p>

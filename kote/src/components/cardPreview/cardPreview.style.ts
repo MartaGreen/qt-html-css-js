@@ -11,6 +11,8 @@ const styles = createUseStyles({
     borderRadius: 10,
     padding: 4,
 
+    transition: "0.3s",
+
     "&:hover": {
       cursor: "pointer",
       background: "#2EA8E6",
@@ -90,10 +92,28 @@ const styles = createUseStyles({
     alignItems: "center",
 
     paddingBottom: 5,
+
+    transition: "0.3s",
   },
 
   ".border:hover": {
     background: "red",
+  },
+
+  selected: {
+    background: "#D91667",
+
+    "& $description__weight": {
+      background: "#D91667",
+    },
+
+    "&:hover": {
+      background: "#E52E7A",
+
+      "& $description__weight": {
+        background: "#E52E7A",
+      },
+    },
   },
 });
 
