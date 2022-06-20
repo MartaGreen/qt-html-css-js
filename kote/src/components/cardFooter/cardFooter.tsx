@@ -15,11 +15,14 @@ function CardFooter({
   const classes = styles();
 
   const msg: JSX.Element = (isDisabled && (
-    <div>Печалька, {taste} закончился</div>
+    <div className={classes.cardFooter}>Печалька, {taste} закончился</div>
   )) ||
-    (isSelected && <div>{selectedMsg}</div>) || (
-      <div>
-        Чего сидишь? Порадуй котэ, <div>купи</div>
+    (isSelected && <div className={classes.cardFooter}>{selectedMsg}</div>) || (
+      <div className={classes.cardFooter}>
+        Чего сидишь? Порадуй котэ,&nbsp;
+        <a href="#" className={classes.cardFooter__buy}>
+          купи.
+        </a>
       </div>
     );
 

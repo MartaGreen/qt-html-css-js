@@ -90,7 +90,7 @@ function CardPreview({
         </div>
         <div className={classes.description__weight}>
           <p style={{ fontSize: 42, lineHeight: "38px" }}>{totalWeight}</p>
-          <p style={{ fontSize: 20 }}>кг</p>
+          <p style={{ fontSize: 21 }}>кг</p>
         </div>
       </div>
     </div>

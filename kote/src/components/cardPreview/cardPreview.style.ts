@@ -42,7 +42,7 @@ const styles = createUseStyles({
 
   preview__description: {
     height: 130,
-    width: 220,
+    width: 228,
 
     display: "flex",
     flexDirection: "column",
@@ -78,7 +78,7 @@ const styles = createUseStyles({
     bottom: 12,
 
     width: 80,
-    height: 80,
+    height: 75,
 
     background: "#1698D9",
     borderRadius: "50%",
@@ -86,8 +86,10 @@ const styles = createUseStyles({
 
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "flex-end",
     alignItems: "center",
+
+    paddingBottom: 5,
   },
 
   ".border:hover": {
