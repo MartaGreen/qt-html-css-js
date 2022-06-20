@@ -23,6 +23,7 @@ function Card({ data }: { data: CardType }) {
       <CardFooter
         isDisabled={isDisabled}
         isSelected={isSelected}
+        changeSelection={setIsSelected}
         selectedMsg={data.selectedMsg}
         taste={data.taste}
       />
