@@ -86,14 +86,20 @@ function CardPreview({
     (divElement as HTMLDivElement).classList.toggle(classes.selected);
 
     changeSelection((selection) => !selection);
+
+    console.log("click selection");
   };
 
   return (
     <div
-      className={`${classes.border} ${data.isSelected && classes.selected}`}
+      className={`${classes.border} ${
+        (data.isSelected && classes.selected) ||
+        (data.isDisabled && classes.disabled)
+      }`}
       onClick={handleCardSelection}
       ref={previewContainer}
     >
+      {/* <div className={classes.disabledBlock}></div> */}
       <div className={classes.preview}>
         <div className={classes.preview__description}>
           <p className={classes.description__dish}>Сказочное заморское яство</p>

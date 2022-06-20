@@ -3,6 +3,7 @@ import catImg from "../../assets/cat.png";
 
 const styles = createUseStyles({
   border: {
+    position: "relative",
     height: "92.3%",
 
     background: "#1698D9",
@@ -115,6 +116,41 @@ const styles = createUseStyles({
       },
     },
   },
+
+  disabled: {
+    background: "#B3B3B3",
+    pointerEvents: "none",
+
+    "-webkit-touch-callout": "none" /* iOS Safari */,
+    "-webkit-user-select": "none" /* Chrome/Safari/Opera */,
+    "-khtml-user-select": "none" /* Konqueror */,
+    "-moz-user-select": "none" /* Firefox */,
+    "-ms-user-select": "none" /* Internet Explorer/Edge */,
+    "user-select": "none",
+
+    "& $description__weight": {
+      background: "#B3B3B3",
+    },
+    "& $preview": {
+      zIndex: 1000,
+      opacity: "45%",
+    },
+  },
+
+  // disabledBlock: {
+  //   position: "absolute",
+  //   top: 0,
+  //   left: 0,
+
+  //   width: "100%",
+  //   height: "100%",
+
+  //   background: "#FFFFFF",
+  //   zIndex: -1,
+  //   opacity: "40%",
+  //   clipPath: "polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px)",
+  //   borderRadius: 10,
+  // },
 });
 
 export default styles;
