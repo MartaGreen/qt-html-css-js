@@ -52,15 +52,17 @@ const styles = createUseStyles({
     justifyContent: "space-between",
     alignItems: "flex-start",
 
-    marginTop: 15,
+    marginTop: 16,
+
+    "&:before": {
+      content: "'Сказочное заморское яство'",
+      fontSize: 16,
+      letterSpacing: 0.1,
+
+      marginBottom: 5,
+    },
   },
 
-  description__dish: {
-    fontSize: 16,
-    letterSpacing: 0.1,
-
-    marginBottom: 6,
-  },
   description__title: {
     fontSize: 48,
     letterSpacing: 1.5,
@@ -97,10 +99,6 @@ const styles = createUseStyles({
     transition: "0.3s",
   },
 
-  ".border:hover": {
-    background: "red",
-  },
-
   selected: {
     background: "#D91667",
 
@@ -113,6 +111,11 @@ const styles = createUseStyles({
 
       "& $description__weight": {
         background: "#E52E7A",
+      },
+
+      "& $preview__description:before": {
+        content: "'Котэ не одобряет?'",
+        color: "#E62E7A",
       },
     },
   },

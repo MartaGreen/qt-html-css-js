@@ -102,7 +102,6 @@ function CardPreview({
       {/* <div className={classes.disabledBlock}></div> */}
       <div className={classes.preview}>
         <div className={classes.preview__description}>
-          <p className={classes.description__dish}>Сказочное заморское яство</p>
           <h2 className={classes.description__title}>Нямушка</h2>
           <h3 className={classes.description__taste}>{data.taste}</h3>
           {servingsOfferJSX(data.servingsAmount)}
