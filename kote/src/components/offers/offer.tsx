@@ -1,21 +1,19 @@
 import React from "react";
 import styles from "./offers.style";
 
-type IOfferComponentProps = {
-  props: {
-    amount: number;
-    wordForms: { [num: number]: string };
-    specialStyles: any;
-  };
-};
-
-// this is a base offer structure: 'offer amount' 'offer word'
-class Offer extends React.Component<IOfferComponentProps> {
+export type OfferComponentPropsType = {
   amount: number;
   wordForms: { [num: number]: string };
   specialStyles: any;
-  constructor({ props }: IOfferComponentProps) {
-    super({ props: props });
+};
+
+// this is a base offer structure: 'offer amount' 'offer word'
+class Offer extends React.Component<OfferComponentPropsType> {
+  amount: number;
+  wordForms: { [num: number]: string };
+  specialStyles: any;
+  constructor(props: OfferComponentPropsType) {
+    super(props);
 
     this.amount = props.amount;
     this.wordForms = props.wordForms;

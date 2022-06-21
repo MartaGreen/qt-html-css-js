@@ -41,16 +41,14 @@ function CardPreview({
     .split(".")
     .join(",");
 
-  const previewContainer = useRef(null);
+  // const previewContainer = useRef(null);
 
   const handleCardSelection = () => {
-    const divElement: HTMLDivElement | null = previewContainer.current;
-    if (!divElement) return;
-    (divElement as HTMLDivElement).classList.toggle(classes.selected);
+    // const divElement: HTMLDivElement | null = previewContainer.current;
+    // if (!divElement) return;
+    // (divElement as HTMLDivElement).classList.toggle(classes.selected);
 
     changeSelection((selection) => !selection);
-
-    console.log("click selection");
   };
 
   return (
@@ -60,14 +58,14 @@ function CardPreview({
         (data.isDisabled && classes.disabled)
       }`}
       onClick={handleCardSelection}
-      ref={previewContainer}
+      // ref={previewContainer}
     >
       <div className={classes.preview}>
         <div className={classes.preview__description}>
           <h2 className={classes.description__title}>Нямушка</h2>
           <h3 className={classes.description__taste}>{data.taste}</h3>
-          <Offer props={servingsOfferData(data.servingsAmount)} />
-          <MouseOffer props={mouseOfferData(data.servingsAmount)} />
+          <Offer {...servingsOfferData(data.servingsAmount)} />
+          <MouseOffer {...mouseOfferData(data.servingsAmount)} />
         </div>
         <div className={classes.description__weight}>
           <p style={{ fontSize: 42, lineHeight: "38px" }}>{totalWeight}</p>
