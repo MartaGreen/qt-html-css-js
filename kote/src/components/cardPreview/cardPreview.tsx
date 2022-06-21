@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./cardPreview.style";
 
 import { WEIGHT_PER_SERVING } from "../../constants/card.constants";
@@ -14,6 +14,8 @@ function CardPreview({
   data: CardPreviewType;
   changeSelection: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  const [isMouseOverCard, setIsMouseOverCard] = useState(false);
+
   const classes = styles();
 
   const servingsOfferData = (amount: number) => {
@@ -41,15 +43,33 @@ function CardPreview({
     .split(".")
     .join(",");
 
-  // const previewContainer = useRef(null);
+  const previewContainer = useRef(null);
 
   const handleCardSelection = () => {
-    // const divElement: HTMLDivElement | null = previewContainer.current;
-    // if (!divElement) return;
-    // (divElement as HTMLDivElement).classList.toggle(classes.selected);
-
     changeSelection((selection) => !selection);
   };
+
+  useEffect(() => {
+    const element: HTMLDivElement | null = previewContainer.current;
+    if (!element) return;
+    const divElement: HTMLDivElement = element as HTMLDivElement;
+
+    const handleMouseLeaving = () => {
+      console.log("leave");
+      divElement.classList.remove(classes.selected_hover);
+      divElement.removeEventListener("mouseleave", handleMouseLeaving);
+    };
+
+    if (data.isSelected && isMouseOverCard) {
+      divElement.classList.add(classes.selected_hover);
+      divElement.addEventListener("mouseleave", handleMouseLeaving);
+    }
+    if (data.isSelected && !isMouseOverCard)
+      divElement.classList.remove(classes.selected_hover);
+
+    return () =>
+      divElement.removeEventListener("mouseleave", handleMouseLeaving);
+  }, [data.isSelected]);
 
   return (
     <div
@@ -57,8 +77,10 @@ function CardPreview({
         (data.isSelected && classes.selected) ||
         (data.isDisabled && classes.disabled)
       }`}
+      onMouseLeave={() => setIsMouseOverCard(false)}
+      onMouseEnter={() => setIsMouseOverCard(true)}
       onClick={handleCardSelection}
-      // ref={previewContainer}
+      ref={previewContainer}
     >
       <div className={classes.preview}>
         <div className={classes.preview__description}>

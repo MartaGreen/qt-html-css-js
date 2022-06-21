@@ -122,6 +122,21 @@ const styles = createUseStyles({
     },
   },
 
+  selected_hover: {
+    "&:hover": {
+      background: "#D91667",
+
+      "& $description__weight": {
+        background: "#D91667",
+      },
+
+      "& $preview__description:before": {
+        content: "'Сказочное заморское яство'",
+        color: "#666666",
+      },
+    },
+  },
+
   disabled: {
     background: "#B3B3B3",
     pointerEvents: "none",
